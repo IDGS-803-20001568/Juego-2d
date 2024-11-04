@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         // Movimiento hacia adelante en función de la dirección
-        body2D.velocity = new Vector2(movingRight ? 1 : -1, 0) * speed;
+        body2D.velocity = new Vector2(movingRight ? -1 : 1, 0) * speed;
 
         // Detectar colisión en el frente del enemigo para cambiar dirección
         DetectarColision();
