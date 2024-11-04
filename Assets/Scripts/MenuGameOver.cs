@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
 
-
 public class MenuGameOver : MonoBehaviour
 {
     [SerializeField] private GameObject menuGameOver;
@@ -26,13 +25,18 @@ public class MenuGameOver : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
     public void MenuInicial(string nombre)
     {
         SceneManager.LoadScene(nombre);
     }
+
     public void Salir()
     {
+#if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
+#else
         Application.Quit();
+#endif
     }
 }

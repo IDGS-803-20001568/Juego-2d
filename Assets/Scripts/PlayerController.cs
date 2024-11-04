@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -54,14 +53,14 @@ public class PlayerController : MonoBehaviour
         var forceX = 0f;
         var forceY = 0f;
 
-        if (playerMoving.moving.x != 0) {
+        if (playerMoving.moving.x != 0)
+        {
 
             if (absVleX < maxVelocity.x)
             {
                 var newSpeed = speed * playerMoving.moving.x;
                 forceX = standing ? newSpeed : (newSpeed * airSpeedMultiplier);
 
-                //renderer2D.flipX = forceX < 0;
                 Flip();
             }
 
@@ -82,12 +81,11 @@ public class PlayerController : MonoBehaviour
             animator.SetInteger("AnimState", 2);
         }
         else if (absVleY > 0 && !standing)
-        {   
+        {
             animator.SetInteger("AnimState", 3);
         }
 
         body2D.AddForce(new Vector2(forceX, forceY));
-
     }
 
     private void Flip()
